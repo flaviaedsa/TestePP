@@ -1,5 +1,6 @@
 #language:pt
 
+@excluir
 Funcionalidade: Excluir usuario
   Como uma aplicacao de gerenciamento de usuarios
   Quero excluir usuarios da base
@@ -8,7 +9,6 @@ Funcionalidade: Excluir usuario
   Contexto:
     Dado que eu tenha um usuario cadastrado na base de dados
 
-@teste3
   Cenario: Excluir usuario 
     Quando faco uma chamada do tipo DELETE para o endpoint de exclusao de usuarios 
     Então o codigo de resposta deve ser igual a "200"  

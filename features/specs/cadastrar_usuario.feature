@@ -1,17 +1,16 @@
 #language: pt
 
+@alterar
 Funcionalidade: Criar usuario
   Como uma aplicacao de gerenciamento de usuarios
   Quero cadastrar usuarios 
   Para manter a base de dados sempre atualizada
 
-@teste1
 Cenario: Usuario criado com sucesso
   Quando faco uma chamada do tipo POST para o endpoint de cadastro de usuarios
   Então o codigo de resposta deve ser igual a "200" 
   E o usuario deve ser salvo corretamente na base de dados
 
-@teste11
 Esquema do Cenário: Usuario nao cadastrado - Dados invalidos
   Dado que eu tenha informações invalidas do usuario:
     | name   | <name>   |  
