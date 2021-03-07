@@ -5,18 +5,34 @@ def cadastrar_usuario(endpoint)
   }
 
   body_cadastro_usuario = {
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    gender: "Female",
-    status: "Active",
+    "name": Faker::Name.name,
+    "email": Faker::Internet.email,
+    "gender": "Female",
+    "status": "Active",
   }.to_json
 
   @resultado = HTTParty.post(endpoint, headers: header, body: body_cadastro_usuario)
 end
 
-def listar_usuarios(endpoint)
+def listar_unico_usuario(endpoint)
   @resultado = HTTParty.get(endpoint)
   expect(@resultado.code).to eql 200
+end
 
-  pages = @resultado["meta"]["pagination"]["pages"]
+def listar_usuarios(endpoint)
+  listar_unico_usuario(endpoint)
+
+  total_pages = @resultado["meta"]["pagination"]["pages"]
+  @found = false
+
+  (1..total_pages).each do |page_now|
+    resultado = HTTParty.get(endpoint + "?page=#{page_now}")
+    ids = resultado["data"].map { |i| i["id"] }
+    comparacao = ids.include?(@id_usuario)
+
+    if comparacao == true
+      @found = true
+      @found_page = page_now
+    end
+  end
 end

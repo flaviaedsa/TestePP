@@ -4,9 +4,9 @@ def alterar_usuario(endpoint)
     'Content-Type': "application/json",
   }
 
-  body_altera_usuario = {
-    name: "Flávia Batista",
+  @body_altera_usuario = {
+    "name": Faker::Name.name,
   }.to_json
 
-  @resultado = HTTParty.put(endpoint, headers: header, body: body_altera_usuario)
+  @resultado = HTTParty.put(endpoint, headers: header, body: @body_altera_usuario)
 end

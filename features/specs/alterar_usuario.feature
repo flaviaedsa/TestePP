@@ -1,6 +1,6 @@
 #language:pt
 
-@cadastrar
+@alterar
 Funcionalidade: Alterar usuario
   Como uma aplicacao de gerenciamento de usuarios
   Quero alterar os dados dos usuarios já cadastrados

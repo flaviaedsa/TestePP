@@ -5,4 +5,5 @@ def excluir_usuario(endpoint)
   }
 
   @resultado = HTTParty.delete(endpoint, headers: header)
+  expect(@resultado.code).to eql 200
 end

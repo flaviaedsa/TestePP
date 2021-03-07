@@ -13,7 +13,7 @@ end
 
 Então("as alteracoes deve ser salvas corretamente na base") do
   endpoint = "#{CONFIG["apis"]["base_url"]}#{@id_usuario}"
-  log(endpoint)
-  listar_usuarios(endpoint)
-  expect(@resultado["data"]["name"]).to eql "Flávia Batista"
+  listar_unico_usuario(endpoint)
+  expect(@resultado["data"]["name"]).to eql JSON.parse(@body_altera_usuario)["name"] #json parse converte um json que está dentro da string para um json do tipo hash
+  expect(@resultado["data"]["email"]).to eql @email_usuario
 end
