@@ -1,6 +1,6 @@
 ## Teste PicPay - Automação de teste de API Rest - CRUD
 
-**Este teste tem o objetivo de:
+Este teste tem o objetivo de:
 
 - Criar um usuário e validar se o mesmo foi criado;
 - Alterar o nome deste usuário e validar a alteração;
@@ -22,7 +22,7 @@
     - faker
 ## Configurando o ambiente:
 
-**Antes de rodar os testes, por favor instale:
+Antes de rodar os testes, por favor instale:
 
 [Ruby/ rbenv/ bundler] - Instalando rbenv, ruby e bundler
 
